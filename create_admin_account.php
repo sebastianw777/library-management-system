@@ -4,6 +4,14 @@ require "config/config.php";
 
 $conn = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
 
+$result = mysqli_query($conn, "SELECT COUNT(*) AS number FROM employees WHERE role = 'admin';"); // Check if the administrator account exist
+$row = mysqli_fetch_assoc($result);
+
+if ($row['number'] > 0) {
+    header("Location: login.php");
+    exit();
+}
+
 if (isset($_POST['submit'])) {
     $login = $_POST['login'];
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
@@ -18,7 +26,6 @@ if (isset($_POST['submit'])) {
 
 ?>
 
-<!-- Adding admin form -->
 <form method="POST"> 
     <label for="first_name">First name</label> 
     <input type="text" name="first_name" id="first_name"><br>
