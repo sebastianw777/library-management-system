@@ -15,6 +15,14 @@ if (!isset($_SESSION['login'])) {
 </head>
 <body>
 
+<header>
+<h1>Library Management System</h1>
+    <nav>
+        <a href="books.php">Books database</a>
+        <a href="../logout.php">Logout</a>
+    </nav>
+</header>
+<main>
 <table>
 
 <tr>
@@ -40,5 +48,7 @@ if (!isset($_SESSION['login'])) {
     ?>
 
     </table>
+</main>
+
 </body>
 </html>
