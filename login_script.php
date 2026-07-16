@@ -19,5 +19,8 @@ if (isset($_POST['submit'])) {
 
         header("Location: pages/books.php");
         exit();
+    } else {
+        header("Location: login.php?error=loginerror");
+        exit();
     }
 }

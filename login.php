@@ -13,6 +13,12 @@
 
     <label for="password">Password</label>
     <input type="password" name="password" id="password"></br>
+
+    <?php
+        if (isset($_GET['error']) and $_GET['error'] == 'loginerror') {
+            echo "<p>Invalid login or password</p>";
+        }
+    ?>
     
     <input type="submit" name="submit" value="Login">
 </form>
