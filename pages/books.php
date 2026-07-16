@@ -18,7 +18,7 @@
     <th>Avalible quantity</th>
 </tr>
 <?php
-    require_once "config/config.php";
+    require_once "../config/config.php";
 
     $conn = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
     $query = "SELECT * FROM books;";
