@@ -26,12 +26,22 @@ CREATE TABLE `clients` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+CREATE TABLE `employees` (
+  `id` int(11) NOT NULL,
+  `first_name` varchar(255) DEFAULT NULL,
+  `last_name` varchar(255) DEFAULT NULL,
+  `login` varchar(30) DEFAULT NULL,
+  `pass` varchar(200) DEFAULT NULL,
+  `role` enum('admin','employee') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 CREATE TABLE `loans` (
   `id` int(11) NOT NULL,
   `book_id` int(11) NOT NULL,
   `client_id` int(11) NOT NULL,
   `loan_date` date NOT NULL,
-  `return_date` date NOT NULL
+  `return_date` date NOT NULL,
+  `employee_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
@@ -40,6 +50,9 @@ ALTER TABLE `books`
   ADD UNIQUE KEY `isbn` (`isbn`);
 
 ALTER TABLE `clients`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `employees`
   ADD PRIMARY KEY (`id`);
 
 ALTER TABLE `loans`
@@ -52,6 +65,9 @@ ALTER TABLE `books`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 ALTER TABLE `clients`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `employees`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 ALTER TABLE `loans`
