@@ -19,7 +19,19 @@ if (!isset($_SESSION['login'])) {
 <h1>Library Management System</h1>
     <nav>
         <a href="books.php">Books database</a>
+        <a href="clients.php">Clients database</a>
         <a href="../logout.php">Logout</a>
+        <?php
+            require_once "../config/config.php";
+            $conn = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
+            $login = $_SESSION['login'];
+            $query_name = "SELECT * FROM employees WHERE login = '$login';";
+            $result = mysqli_query($conn, $query_name);
+
+            $user = mysqli_fetch_assoc($result);
+            
+            echo "<p>Account: " .$user['first_name']. " " .$user['last_name']. "</p>";
+        ?>
     </nav>
 </header>
 <main>
@@ -34,9 +46,6 @@ if (!isset($_SESSION['login'])) {
     <th>Avalible quantity</th>
 </tr>
 <?php
-    require_once "../config/config.php";
-
-    $conn = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
     $query = "SELECT * FROM books;";
 
     $result = mysqli_query($conn, $query);
