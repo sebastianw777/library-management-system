@@ -2,8 +2,6 @@
 
 require "config/config.php";
 
-$conn = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
-
 $result = mysqli_query($conn, "SELECT COUNT(*) AS number FROM employees WHERE role = 'admin';"); // Check if the administrator account exist
 $row = mysqli_fetch_assoc($result);
 

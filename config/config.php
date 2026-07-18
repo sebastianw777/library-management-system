@@ -16,4 +16,5 @@ $db_name = "library_management_system"; // Database name
 $db_user = "root"; // Username
 $db_pass = ""; // Password
 
+$conn = mysqli_connect($db_host, $db_user, $db_pass, $db_name); // Dont change this line!
 ?>

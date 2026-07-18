@@ -19,7 +19,6 @@ require_once "../auth.php";
         <a href="../logout.php">Logout</a>
         <?php
             require_once "../config/config.php";
-            $conn = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
             $login = $_SESSION['login'];
             $query_name = "SELECT * FROM employees WHERE login = '$login';";
             $result = mysqli_query($conn, $query_name);

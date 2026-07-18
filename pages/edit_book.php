@@ -2,7 +2,6 @@
 require_once "../auth.php";
 require_once "../config/config.php";
 
-$conn = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
 $id = $_GET['id'];
 $query = "SELECT * FROM books WHERE id='$id';";
 $result = mysqli_query($conn, $query);
