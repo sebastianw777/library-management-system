@@ -19,7 +19,6 @@ require_once "../auth.php";
         <a href="../logout.php">Logout</a>
         <?php
             require_once "../config/config.php";
-            $conn = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
             $login = $_SESSION['login'];
             $query_name = "SELECT * FROM employees WHERE login = '$login';";
             $result = mysqli_query($conn, $query_name);
@@ -47,7 +46,7 @@ require_once "../auth.php";
     $result = mysqli_query($conn, $query);
 
     while ($row = mysqli_fetch_assoc($result)) {
-        echo "<tr><th>" .$row['id']. "</th><th>" .$row['first_name']. "</th><th>" .$row['last_name']. "</th><th>" .$row['email']. "</th><th>" .$row['phone']. "</th><th>" .$row['created_at']. "</th></tr>";
+        echo "<tr><th>" .$row['id']. "</th><th>" .$row['first_name']. "</th><th>" .$row['last_name']. "</th><th>" .$row['email']. "</th><th>" .$row['phone']. "</th><th>" .$row['created_at']. "</th><th><a href='edit_client.php?id=".$row['id']."'>Edit</a></th></tr>";
     }
 
     ?>
