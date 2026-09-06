@@ -32,6 +32,12 @@ require_once "../auth.php";
     </nav>
 </header>
 <main>
+
+    <form method="POST" action="">
+        <input type="text" name="search" placeholder="Search client by first name or last name...">
+        <input type="submit" value="Search">
+    </form>
+
 <table>
 
 <tr>
@@ -43,7 +49,9 @@ require_once "../auth.php";
     <th>Created at</th>
 </tr>
 <?php
-    $query = "SELECT * FROM clients;";
+
+    $search = isset($_POST['search']) ? $_POST['search'] : '';
+    $query = "SELECT * FROM clients WHERE CONCAT(first_name, ' ', last_name) LIKE '%$search%';";
 
     $result = mysqli_query($conn, $query);
 

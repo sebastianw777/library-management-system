@@ -18,6 +18,8 @@ require_once "../auth.php";
         <a href="clients.php">Clients database</a>
         <a href="loans.php">Loans</a>
         <a href="../logout.php">Logout</a>
+
+
         <?php
             require_once "../config/config.php";
             $login = $_SESSION['login'];
@@ -32,6 +34,12 @@ require_once "../auth.php";
     </nav>
 </header>
 <main>
+
+    <form method="POST" action="">
+        <input type="text" name="search" placeholder="Search book by title or ISBN...">
+        <input type="submit" value="Search">
+    </form>
+
 <table>
 
 <tr>
@@ -43,12 +51,14 @@ require_once "../auth.php";
     <th>Avalible quantity</th>
 </tr>
 <?php
-    $query = "SELECT * FROM books;";
+    $search = isset($_POST['search']) ? $_POST['search'] : '';
+
+    $query = "SELECT * FROM books WHERE CONCAT(title, ' ', isbn) LIKE '%$search%';";
 
     $result = mysqli_query($conn, $query);
 
     while ($row = mysqli_fetch_assoc($result)) {
-        echo "<tr><th>" .$row['id']. "</th><th>" .$row['title']. "</th><th>" .$row['author']. "</th><th>" .$row['isbn']. "</th><th>" .$row['quantity']. "</th><th>" .$row['available_quantity']. "</th><th><a href='edit_book.php?id=".$row['id']."'>Edit</a></th></tr>";
+        echo "<tr><th>" .$row['id']. "</th><th>" .$row['title']. "</th><th>" .$row['author']. "</th><th>" .$row['isbn']. "</th><th>" .$row['quantity']. "</th><th>" .$row['available_quantity']. "</th><th><a href='edit_book.php?id=".$row['id']."'>Edit</a></th><th><a href='make_loan.php?id=".$row['id']."'>Make Loan</a></th></tr>";
     }
 
     ?>
