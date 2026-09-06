@@ -28,7 +28,7 @@ require_once "../auth.php";
             
             echo "<p>Account: " .$user['first_name']. " " .$user['last_name']. "</p>";
         ?>
-        <a href="add_book.php">Add book</a>
+        <a href="add_loan.php">Create new loan</a>
     </nav>
 </header>
 <main>
@@ -36,19 +36,19 @@ require_once "../auth.php";
 
 <tr>
     <th>ID</th>
-    <th>Title</th>
-    <th>Author</th>
-    <th>ISBN</th>
-    <th>Quantity</th>
-    <th>Avalible quantity</th>
+    <th>Book ID</th>
+    <th>Client ID</th>
+    <th>Loan Date</th>
+    <th>Return Date</th>
+    <th>Employee ID</th>
 </tr>
 <?php
-    $query = "SELECT * FROM books;";
+    $query = "SELECT * FROM loans;";
 
     $result = mysqli_query($conn, $query);
 
     while ($row = mysqli_fetch_assoc($result)) {
-        echo "<tr><th>" .$row['id']. "</th><th>" .$row['title']. "</th><th>" .$row['author']. "</th><th>" .$row['isbn']. "</th><th>" .$row['quantity']. "</th><th>" .$row['available_quantity']. "</th><th><a href='edit_book.php?id=".$row['id']."'>Edit</a></th></tr>";
+        echo "<tr><th>" .$row['id']. "</th><th>" .$row['book_id']. "</th><th>" .$row['client_id']. "</th><th>" .$row['loan_date']. "</th><th>" .$row['return_date']. "</th><th>" .$row['employee_id']. "</th><th><a href='edit_client.php?id=".$row['id']."'>Edit</a></th></tr>";
     }
 
     ?>

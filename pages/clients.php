@@ -16,6 +16,7 @@ require_once "../auth.php";
     <nav>
         <a href="books.php">Books database</a>
         <a href="clients.php">Clients database</a>
+        <a href="loans.php">Loans</a>
         <a href="../logout.php">Logout</a>
         <?php
             require_once "../config/config.php";
