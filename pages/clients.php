@@ -27,6 +27,7 @@ require_once "../auth.php";
             
             echo "<p>Account: " .$user['first_name']. " " .$user['last_name']. "</p>";
         ?>
+        <a href="add_client.php">Add client</a>
     </nav>
 </header>
 <main>
