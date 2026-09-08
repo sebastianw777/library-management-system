@@ -19,7 +19,8 @@ echo "Client: " .$row2['first_name']. " " .$row2['last_name']. "" .$row2['email'
 ?>
 
 <form method="POST" action="">
-    <input type="date" name="return_date" placeholder="Return date">
+    <label for="return_date">Return date</label>
+    <input type="date" name="return_date" id="return_date" required><br>
     <input type="submit" name="confirm" value="Confirm">
 </form>
 
