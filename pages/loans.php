@@ -28,7 +28,6 @@ require_once "../auth.php";
             
             echo "<p>Account: " .$user['first_name']. " " .$user['last_name']. "</p>";
         ?>
-        <a href="add_loan.php">Create new loan</a>
     </nav>
 </header>
 <main>
