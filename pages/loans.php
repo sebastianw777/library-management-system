@@ -47,7 +47,7 @@ require_once "../auth.php";
     $result = mysqli_query($conn, $query);
 
     while ($row = mysqli_fetch_assoc($result)) {
-        echo "<tr><th>" .$row['id']. "</th><th>" .$row['book_id']. "</th><th>" .$row['client_id']. "</th><th>" .$row['loan_date']. "</th><th>" .$row['return_date']. "</th><th>" .$row['employee_id']. "</th><th><a href='return.php?loan_id=" .$row['id']."&book_id=" .$row['book_id']."'>Return</a></th></tr>";
+        echo "<tr><td>" .$row['id']. "</td><td>" .$row['book_id']. "</td><td>" .$row['client_id']. "</td><td>" .$row['loan_date']. "</td><td>" .$row['return_date']. "</td><td>" .$row['employee_id']. "</td><td><a href='return.php?loan_id=" .$row['id']."&book_id=" .$row['book_id']."'>Return</a></td></tr>";
     }
 
     ?>

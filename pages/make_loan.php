@@ -41,7 +41,7 @@ $result2 = mysqli_query($conn, $query2);
 
 
 while ($row2 = mysqli_fetch_assoc($result2)) {
-    echo "<tr><th>" .$row2['id']. "</th><th>" .$row2['first_name']. "</th><th>" .$row2['last_name']. "</th><th>" .$row2['email']. "</th><th>" .$row2['phone']. "</th><th><a href='make_loan_script.php?book_id=".$id."&client_id=".$row2['id']."'>Select</a></th></tr>";
+    echo "<tr><td>" .$row2['id']. "</td><td>" .$row2['first_name']. "</td><td>" .$row2['last_name']. "</td><td>" .$row2['email']. "</td><td>" .$row2['phone']. "</td><td><a href='make_loan_script.php?book_id=".$id."&client_id=".$row2['id']."'>Select</a></td></tr>";
 }
 
 ?>
